@@ -13,7 +13,8 @@ class LoadingPage extends StatelessWidget {
           spacing: 16,
           children: [
             CircularProgressIndicator(color: Theme.of(context).primaryTextTheme.headlineMedium?.color),
-            Text('Loading...', style: TextStyle(color: Theme.of(context).primaryTextTheme.headlineMedium?.color, fontSize: 20))],
+            Text('Loading...', style: TextStyle(color: Theme.of(context).primaryTextTheme.headlineMedium?.color, fontSize: 20)),
+          ],
         ),
       ),
     );

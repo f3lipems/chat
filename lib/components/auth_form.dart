@@ -13,18 +13,33 @@ class _AuthFormState extends State<AuthForm> {
   final _formData = AuthFormData();
 
   void _submit() {
-    if (_formKey.currentState!.validate()) {
-      // _formKey.currentState!.save();
-      // print(_formData.name);
-      // print(_formData.email);
-      // print(_formData.password);
-    }
+    final isValid = _formKey.currentState!.validate();
+    if (!isValid) return;
+    _formKey.currentState!.save();
   }
 
   void _changeAuthMode() {
     setState(() {
       _formData.toggleAuthMode();
     });
+  }
+
+  String? _nameValidator(String? value) {
+    final name = value ?? '';
+    if (name.trim().length < 3) return 'Nome deve ter pelo menos 3 caracteres';
+    return null;
+  }
+  
+  String? _emailValidator(String? value) {
+    final email = value ?? '';
+    if (!email.contains('@')) return 'E-mail inválido';
+    return null;
+  }
+
+    String? _passwordValidator(String? value) {
+    final password = value ?? '';
+    if (password.trim().length < 6) return 'Senha deve ter pelo menos 6 caracteres';
+    return null;
   }
 
   @override
@@ -44,18 +59,21 @@ class _AuthFormState extends State<AuthForm> {
                   initialValue: _formData.name, 
                   decoration: 
                   const InputDecoration(labelText: 'Nome'),
+                  validator: _nameValidator,
                 ),
               TextFormField(
                 key: ValueKey('email'), 
                 onChanged: (value) => _formData.email = value,
                 decoration: const InputDecoration(labelText: 'Email'), 
                 keyboardType: TextInputType.emailAddress,
+                validator: _emailValidator,
               ),
               TextFormField(
                 key: ValueKey('password'), 
                 onChanged: (value) => _formData.password = value,
                 decoration: const InputDecoration(labelText: 'Password'), 
                 obscureText: true,
+                validator: _passwordValidator,
               ),
               const SizedBox(height: 12),
               ElevatedButton(onPressed: _submit, child: Text(_formData.isLogin ? 'Entrar' : 'Cadastrar')),

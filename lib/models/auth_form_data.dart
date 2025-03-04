@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 enum AuthMode { signup, login }
@@ -7,7 +6,7 @@ class AuthFormData {
   String name = '';
   String email = '';
   String password = '';
-  File? image;  
+  File? image;
   AuthMode authMode = AuthMode.login;
 
   bool get isLogin {
@@ -19,8 +18,6 @@ class AuthFormData {
   }
 
   void toggleAuthMode() {
-    if (authMode == AuthMode.login) {
-      authMode = isLogin ? AuthMode.signup : AuthMode.login;
-    }
+    authMode = isLogin ? AuthMode.signup : AuthMode.login;
   }
 }

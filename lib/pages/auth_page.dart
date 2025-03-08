@@ -12,12 +12,22 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends State<AuthPage> {
   bool isLoading = false;
 
-  void _onSubmit(AuthFormData formData) {
-    setState(() => isLoading = true);
+  Future<void> _handleSubmit(AuthFormData formData) async {
 
-    print('Auth Page');
-    print(formData.email);
-    print(formData.password);
+    try {
+      setState(() => isLoading = true);
+      
+      if (formData.isLogin) {
+        // Login
+      } else {
+        // Signup
+      }
+    } catch (error) {
+      print(error);
+      
+    } finally {
+      setState(() => isLoading = false);
+    }
   }
 
   @override
@@ -25,7 +35,7 @@ class _AuthPageState extends State<AuthPage> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: Stack(children: [
-        Center(child: SingleChildScrollView(child: AuthForm(onSubmit: _onSubmit))),
+        Center(child: SingleChildScrollView(child: AuthForm(onSubmit: _handleSubmit))),
         if (isLoading) Container(
           decoration: BoxDecoration(
             color: Color.fromRGBO(0, 0, 0, 0.5)

@@ -1,4 +1,4 @@
-import 'package:chat/pages/auth_page.dart';
+import 'package:chat/pages/auth_or_app_page.dart';
 import 'package:chat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false, 
       title: 'Chat App', 
       theme: AppTheme.theme(), 
-      home: AuthPage(),
+      home: AuthOrAppPage(),
     );
   }
 }

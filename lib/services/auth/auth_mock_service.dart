@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:chat/models/chat_user.dart';
 import 'package:chat/services/auth/auth_service.dart';
 
-class AuthServiceMock implements AuthService {
+class AuthMockService implements AuthService {
   static final _defaultUser = ChatUser(
     id: '1',
     name: 'Test User',

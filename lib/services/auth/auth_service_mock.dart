@@ -38,7 +38,7 @@ class AuthServiceMock implements AuthService {
       id: DateTime.now().toString(),
       name: name,
       email: email,
-      imageUrl: image?.path ?? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+      imageUrl: image?.path ?? 'assets/images/avatar.png',
     );
     _users.putIfAbsent(email, () => newUser);
     _updateUser(newUser);

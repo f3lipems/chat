@@ -5,13 +5,19 @@ import 'package:chat/models/chat_user.dart';
 import 'package:chat/services/auth/auth_service.dart';
 
 class AuthServiceMock implements AuthService {
+  static final _defaultUser = ChatUser(
+    id: '1',
+    name: 'Test User',
+    email: 'test@visionar.io',
+    imageUrl: 'assets/images/avatar.png',
+  );
 
-  static Map<String, ChatUser> _users = {};
+  static final Map<String, ChatUser> _users = {_defaultUser.email: _defaultUser};
   static ChatUser? _currentUser;
   static MultiStreamController<ChatUser?>? _controller;
   static final _userStream = Stream<ChatUser?>.multi((controller) {
     _controller = controller;
-    _updateUser(null);
+    _updateUser(_defaultUser);
   });
 
   @override

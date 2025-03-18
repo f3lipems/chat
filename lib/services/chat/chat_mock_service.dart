@@ -39,10 +39,12 @@ class ChatMockService implements ChatService {
     controller.add(_msgs);
   });
 
+  @override
   Stream<List<ChatMessage>> messagesStream() {
     return _msgsSream;
   }
 
+  @override
   Future<ChatMessage> save(String text, ChatUser user) async {
     final newMessage = ChatMessage(
       id: DateTime.now().toString(),

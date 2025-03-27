@@ -54,12 +54,19 @@ class MessageBubble extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
               margin: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
               child: Column(
+                crossAxisAlignment: belongToCurrentUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    message.userName,
-                    style: TextStyle(fontWeight: FontWeight.bold, color: belongToCurrentUser ? Colors.black : Colors.white),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 0, horizontal: 32),
+                    child: Text(
+                      message.userName,
+                      style: TextStyle(fontWeight: FontWeight.bold, color: belongToCurrentUser ? Colors.black : Colors.white),
+                    ),
                   ),
-                  Text(message.text, style: TextStyle(color: belongToCurrentUser ? Colors.black : Colors.white)),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 32),
+                    child: Text(message.text, style: TextStyle(color: belongToCurrentUser ? Colors.black : Colors.white)),
+                  ),
                 ],
               ),
             ),

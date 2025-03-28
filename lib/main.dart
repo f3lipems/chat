@@ -1,5 +1,5 @@
 import 'package:chat/pages/auth_or_app_page.dart';
-import 'package:chat/services/notification/push_notification_service.dart';
+import 'package:chat/services/notification/chat_notification_service.dart';
 import 'package:chat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => PushNotificationService()),
+        ChangeNotifierProvider(create: (context) => ChatNotificationService()),
         // ChangeNotifierProvider(create: (context) => ChatService()),
         // ChangeNotifierProvider(create: (context) => UserService()),
         // ChangeNotifierProvider(create: (context) => AuthService()),

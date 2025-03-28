@@ -10,9 +10,11 @@ class PushNotificationService with ChangeNotifier {
 
   void addNotification(ChatNotification notification) {
     _items.add(notification);
+    notifyListeners();
   } 
 
   void removeNotification(int idx) {
     _items.removeAt(idx);
+    notifyListeners();
   }
 }

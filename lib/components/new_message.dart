@@ -1,4 +1,3 @@
-import 'package:chat/models/chat_message.dart';
 import 'package:chat/services/auth/auth_service.dart';
 import 'package:chat/services/chat/chat_service.dart';
 import 'package:flutter/material.dart';

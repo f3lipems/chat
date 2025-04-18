@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:chat/components/new_message.dart';
 import 'package:chat/models/chat_message.dart';
 import 'package:chat/models/chat_user.dart';
 import 'package:chat/services/chat/chat_service.dart';

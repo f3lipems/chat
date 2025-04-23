@@ -1,5 +1,6 @@
 import 'package:chat/components/messages.dart';
 import 'package:chat/components/new_message.dart';
+import 'package:chat/pages/notification_page.dart';
 import 'package:chat/services/auth/auth_service.dart';
 import 'package:chat/services/notification/chat_notification_service.dart';
 import 'package:flutter/material.dart';
@@ -25,14 +26,27 @@ class ChatPage extends StatelessWidget {
               items: [
                 DropdownMenuItem(
                   value: 'logout',
-                  child: Row(spacing: 10, children: [Icon(Icons.exit_to_app, color: Colors.black), Text('Logout')]),
+                  child: Row(
+                    spacing: 10,
+                    children: [Icon(Icons.exit_to_app, color: Colors.black), Text('Logout')],
+                  ),
                 ),
               ],
             ),
           ),
           Stack(
             children: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
+              IconButton(
+                icon: Icon(Icons.notifications),
+                color: Theme.of(context).primaryColor,
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const NotificationPage(),
+                    ),
+                  );
+                },
+              ),
               Positioned(
                 top: 5,
                 right: 5,

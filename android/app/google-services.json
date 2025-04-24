@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1049300797550",
+    "project_id": "visionar-chat",
+    "storage_bucket": "visionar-chat.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049300797550:android:d4027f71d85df55d9a7e7f",
+        "android_client_info": {
+          "package_name": "io.visionar.chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeFOvSF2X4BgIUPZONnK6CHAuEu3VhhvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

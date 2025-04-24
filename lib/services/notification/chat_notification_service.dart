@@ -13,7 +13,7 @@ class ChatNotificationService with ChangeNotifier {
     notifyListeners();
   } 
 
-  int get ItemsCount {
+  int get itemsCount {
     return _items.length;
   }
 

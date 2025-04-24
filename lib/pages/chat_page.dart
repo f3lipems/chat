@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:chat/components/messages.dart';
 import 'package:chat/components/new_message.dart';
+import 'package:chat/models/chat_notification.dart';
 import 'package:chat/pages/notification_page.dart';
 import 'package:chat/services/auth/auth_service.dart';
 import 'package:chat/services/notification/chat_notification_service.dart';
@@ -17,7 +20,10 @@ class ChatPage extends StatelessWidget {
         actions: [
           DropdownButtonHideUnderline(
             child: DropdownButton(
-              icon: Icon(Icons.more_vert, color: Theme.of(context).primaryColor),
+              icon: Icon(
+                Icons.more_vert,
+                color: Theme.of(context).primaryColor,
+              ),
               onChanged: (value) {
                 if (value == 'logout') {
                   AuthService().logout();
@@ -28,7 +34,10 @@ class ChatPage extends StatelessWidget {
                   value: 'logout',
                   child: Row(
                     spacing: 10,
-                    children: [Icon(Icons.exit_to_app, color: Colors.black), Text('Logout')],
+                    children: [
+                      Icon(Icons.exit_to_app, color: Colors.black),
+                      Text('Logout'),
+                    ],
                   ),
                 ),
               ],
@@ -54,7 +63,7 @@ class ChatPage extends StatelessWidget {
                   maxRadius: 10,
                   backgroundColor: Colors.red,
                   child: Text(
-                    '${Provider.of<ChatNotificationService>(context).ItemsCount}',
+                    '${Provider.of<ChatNotificationService>(context).itemsCount}',
                     style: TextStyle(color: Colors.white, fontSize: 12),
                   ),
                 ),
@@ -63,7 +72,24 @@ class ChatPage extends StatelessWidget {
           ),
         ],
       ),
-      body: SafeArea(child: Column(children: [Expanded(child: Messages()), NewMessage()])),
+      body: SafeArea(
+        child: Column(children: [Expanded(child: Messages()), NewMessage()]),
+      ),
+      // floatingActionButton: FloatingActionButton(
+      //   // backgroundColor: Theme.of(context).actionIconTheme,
+      //   child: Icon(Icons.add),
+      //   onPressed: () {
+      //     Provider.of<ChatNotificationService>(
+      //       context,
+      //       listen: false,
+      //     ).addNotification(
+      //       ChatNotification(
+      //         title: 'New Message',
+      //         body: Random().nextInt(1000000).toString(),
+      //       ),
+      //     );
+      //   },
+      // ),
     );
   }
 }
